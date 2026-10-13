@@ -5,6 +5,63 @@ const ollamaChatModels: AIChatModelCard[] = [
     abilities: {
       functionCall: true,
       reasoning: true,
+      vision: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'Gemma 4 e4b — Official local AI model for MCIT AI. Fast, accurate, and optimized for private enterprise deployments.',
+    displayName: 'Gemma 4 e4b (Default)',
+    family: 'gemma',
+    generation: 'gemma-4',
+    id: 'gemma4:e4b',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'Qwen 2.5 7B — Highly capable open-weights model for reasoning, multilingual conversation, and coding.',
+    displayName: 'Qwen 2.5 7B',
+    family: 'qwen',
+    generation: 'qwen-2.5',
+    id: 'qwen2.5:7b',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'Qwen 2.5 14B — Mid-sized model with advanced analytical power and coding excellence.',
+    displayName: 'Qwen 2.5 14B',
+    family: 'qwen',
+    generation: 'qwen-2.5',
+    id: 'qwen2.5:14b',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'Qwen 3 4B Instruct — Lightweight instruct model for ultra-fast local inference.',
+    displayName: 'Qwen 3 4B Instruct',
+    family: 'qwen',
+    generation: 'qwen-3',
+    id: 'qwen3:4b-instruct',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
     },
     contextWindowTokens: 163_840,
     description:

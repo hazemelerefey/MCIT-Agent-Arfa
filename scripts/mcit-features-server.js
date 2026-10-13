@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MCIT features sidecar — Studio generation + admin bootstrap for stock Lobe images.
+ * MCIT features sidecar — Studio generation + admin bootstrap.
  * Listens on MCIT_FEATURES_PORT (default 3215). Proxy /webapi/mcit/* here when needed.
  */
 const http = require('http');

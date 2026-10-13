@@ -382,8 +382,8 @@ export const ProviderItemRender = memo<ProviderItemRenderProps>(
             style={isMono ? { filter: 'grayscale(1)' } : {}}
             title={name}
           />
-        ) : provider === 'lobehub' ? (
-          <LobeHub.Morden size={size} />
+        ) : provider === 'mcit' || provider === 'lobehub' ? (
+          <Avatar avatar="/mcit-logo.webp" shape={'circle'} size={size} />
         ) : (
           <ProviderIcon provider={provider} size={size} type={type} />
         )}

@@ -229,21 +229,17 @@ export const SignInEmailStep = ({
       )}
       {!showEmailForm && <AuthAgreement />}
       {showEmailForm && (
-        <Text align={'center'} fontSize={13} style={{ marginTop: 16 }} type={'secondary'}>
-          {t('betterAuth.signin.noAccount')}{' '}
+        <Text align={'center'} fontSize={12} style={{ marginTop: 16 }} type={'secondary'}>
+          MCIT AI Private Network &bull; Accounts managed by IT Administrator &bull;{' '}
           <a
             className={styles.inlineLink}
             role="button"
             tabIndex={0}
-            onClick={onGoToSignup}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onGoToSignup();
-              }
+            onClick={() => {
+              window.location.href = '/admin';
             }}
           >
-            {t('betterAuth.signin.signupLink')}
+            Admin Portal
           </a>
         </Text>
       )}

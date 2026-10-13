@@ -1,145 +1,69 @@
 'use client';
 
-import { BRANDING_NAME } from '@lobechat/business-const';
-import { Icon } from '@lobehub/ui';
-import { Button, Input, InputPassword, Text } from '@lobehub/ui/base-ui';
-import { Form } from '@lobehub/ui/base-ui/form';
-import { Lock, Mail } from 'lucide-react';
-import { type CSSProperties, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useSearchParams } from 'react-router';
-
+import { BRANDING_NAME, ORG_NAME } from '@lobechat/business-const';
+import { Flexbox } from '@lobehub/ui';
+import { Button, Text } from '@lobehub/ui/base-ui';
+import { ShieldAlert, UserCheck, Shield } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import { AuthCard } from '@/features/AuthCard';
-import AuthAgreement from '@/features/AuthShell/AuthAgreement';
-import { trackLoginOrSignupClicked } from '@/features/User/UserLoginOrSignup/trackLoginOrSignupClicked';
-
-import { EMAIL_REGEX } from '../SignIn/SignInEmailStep';
-import { useSignUp } from './useSignUp';
-
-const FIELD_STYLE: CSSProperties = { gap: 0, paddingBlock: '0 24px' };
 
 const BetterAuthSignUpForm = () => {
-  const { agreementChecked, businessElement, form, loading, setAgreementChecked } = useSignUp();
-
-  const { t } = useTranslation('auth');
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-
-  const emailInputRef = useRef<HTMLInputElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const email = searchParams.get('email');
-    if (email) {
-      form.setValue('email', email);
-      passwordInputRef.current?.focus();
-    } else {
-      emailInputRef.current?.focus();
-    }
-  }, [searchParams, form]);
 
   const footer = (
-    <Text>
-      {t('betterAuth.signup.hasAccount')}{' '}
-      <Link
-        to={`/signin?${searchParams.toString()}`}
-        onClick={(event) => {
-          event.preventDefault();
-          void trackLoginOrSignupClicked({ spm: 'signup.go_to_signin.click' }).finally(() => {
-            navigate(`/signin?${searchParams.toString()}`);
-          });
-        }}
+    <Flexbox horizontal justify="center" gap={8}>
+      <Text type="secondary" fontSize={13}>
+        Already have an assigned account?
+      </Text>
+      <a
+        style={{ color: 'var(--ant-color-primary)', cursor: 'pointer', fontWeight: 600 }}
+        onClick={() => navigate('/signin')}
       >
-        {t('betterAuth.signup.signinLink')}
-      </Link>
-    </Text>
+        Sign In
+      </a>
+    </Flexbox>
   );
 
   return (
-    <AuthCard footer={footer} title={t('betterAuth.signup.cardTitle', { appName: BRANDING_NAME })}>
-      <Form form={form} gap={0} layout="vertical">
-        <Form.Field
-          name="email"
-          style={FIELD_STYLE}
-          validate={(value: string) => {
-            if (!value) return t('betterAuth.errors.emailRequired');
-            if (!EMAIL_REGEX.test(value)) return t('betterAuth.errors.emailInvalid');
+    <AuthCard footer={footer} title={`Registration Restricted — ${BRANDING_NAME}`}>
+      <Flexbox gap={18} style={{ padding: '8px 0 16px' }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12,
+            padding: '14px 16px',
+            borderRadius: 12,
+            background: 'var(--ant-color-fill-tertiary)',
+            border: '1px solid var(--ant-color-border-secondary)',
           }}
         >
-          <Input
-            autoComplete="email"
-            inputMode="email"
-            placeholder={t('betterAuth.signup.emailPlaceholder')}
-            ref={emailInputRef}
-            size="large"
-            type="email"
-            prefix={
-              <Icon
-                icon={Mail}
-                style={{
-                  marginInline: 6,
-                }}
-              />
-            }
-          />
-        </Form.Field>
-        <Form.Field
-          name="password"
-          style={FIELD_STYLE}
-          validate={(value: string) => {
-            if (!value) return t('betterAuth.errors.passwordRequired');
-            if (value.length < 8) return t('betterAuth.errors.passwordMinLength');
-            if (value.length > 64) return t('betterAuth.errors.passwordMaxLength');
-            if (!/[a-z]/i.test(value) || !/\d/.test(value))
-              return t('betterAuth.errors.passwordFormat');
-          }}
-        >
-          <InputPassword
-            autoComplete="new-password"
-            placeholder={t('betterAuth.signup.passwordPlaceholder')}
-            ref={passwordInputRef}
-            size="large"
-            prefix={
-              <Icon
-                icon={Lock}
-                style={{
-                  marginInline: 6,
-                }}
-              />
-            }
-          />
-        </Form.Field>
-        <Form.Field
-          deps={['password']}
-          name="confirmPassword"
-          style={FIELD_STYLE}
-          validate={(value: string, values: { password: string }) => {
-            if (!value) return t('betterAuth.errors.confirmPasswordRequired');
-            if (values.password !== value) return t('betterAuth.errors.passwordMismatch');
-          }}
-        >
-          <InputPassword
-            autoComplete="new-password"
-            placeholder={t('betterAuth.signup.confirmPasswordPlaceholder')}
-            size="large"
-            prefix={
-              <Icon
-                icon={Lock}
-                style={{
-                  marginInline: 6,
-                }}
-              />
-            }
-          />
-        </Form.Field>
+          <ShieldAlert size={28} style={{ color: 'var(--ant-color-warning)', flexShrink: 0 }} />
+          <div>
+            <Text weight="bold" fontSize={14}>
+              Public Registration Disabled
+            </Text>
+            <div style={{ fontSize: 13, color: 'var(--ant-color-text-secondary)', marginTop: 2 }}>
+              In accordance with {ORG_NAME} security policies, self-registration is closed.
+            </div>
+          </div>
+        </div>
 
-        {businessElement && <div style={{ paddingBlockEnd: 24 }}>{businessElement}</div>}
+        <Text type="secondary" fontSize={13} style={{ lineHeight: 1.6 }}>
+          All user accounts, credentials, and roles are provisioned exclusively by the designated
+          organization administrator. If you require access, please contact your MCIT IT department.
+        </Text>
 
-        <AuthAgreement checked={agreementChecked} onChange={setAgreementChecked} />
-        <Button block htmlType="submit" loading={loading} size="large" type="primary">
-          {t('betterAuth.signup.submit')}
-        </Button>
-      </Form>
+        <Flexbox gap={10} style={{ marginTop: 8 }}>
+          <Button block size="large" type="primary" icon={<UserCheck size={18} />} onClick={() => navigate('/signin')}>
+            Go to Official Sign In
+          </Button>
+
+          <Button block size="large" icon={<Shield size={18} />} onClick={() => navigate('/admin')}>
+            Administrator Control Portal
+          </Button>
+        </Flexbox>
+      </Flexbox>
     </AuthCard>
   );
 };

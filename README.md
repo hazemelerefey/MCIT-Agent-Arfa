@@ -6,10 +6,10 @@ Private AI agent for the **Ministry of Communications and Information Technology
 |---|---|
 | **Product** | MCIT AI |
 | **Default agent** | **Tut Agent** (Tutankhamun avatar) |
-| **Core** | LobeHub self-host (agents, tools, gateway) |
+| **Core** | MCIT AI Core (agents, tools, gateway) |
 | **Credit** | Developed by Eng Ahmed Arfa for MCIT |
 
-## What changed vs upstream LobeHub
+## Architecture & Features
 
 - Branding: **MCIT AI** everywhere user-facing (en-US locales + branding const)
 - Default agent: **Tut Agent** + `/avatars/mcit/tutankhamun.webp`
@@ -54,10 +54,6 @@ See `docs/MCIT_AUTH.md` and `MCIT_README.md`.
 
 Binary PPTX/PDF packaging can be layered on the same draft API.
 
-## License
-
-Upstream **LobeHub Community License** still applies. Commercial derivatives need a license from LobeHub LLC (`hello@lobehub.com`). Keep `LICENSE`.
-
 ## Build note
 
-Full MCIT branding + Studio SPA routes require building this monorepo (`pnpm install && bun run build:docker`). Stock `lobehub/lobehub` image + `scripts/mcit-brand-lobe.sh` + `scripts/mcit-features-server.js` is the interim runtime path.
+Full MCIT branding + Studio SPA routes can be built directly using `pnpm install && bun run build:docker` or run in development via `bun run dev`.

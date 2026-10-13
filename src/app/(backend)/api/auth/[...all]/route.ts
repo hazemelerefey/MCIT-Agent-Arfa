@@ -29,6 +29,21 @@ const validateJsonBody = async (request: Request) => {
 export const GET = handler.GET;
 
 export const POST = async (request: NextRequest) => {
+  // MCIT Security Rule: Disable public self-registration.
+  // Only internal requests authorized with 'x-mcit-admin-internal' can sign up users.
+  if (
+    request.nextUrl.pathname.includes('/sign-up/email') &&
+    !request.headers.get('x-mcit-admin-internal')
+  ) {
+    return Response.json(
+      {
+        code: 'PUBLIC_SIGNUP_DISABLED',
+        message: 'Public registration is disabled. Accounts can only be provisioned by the MCIT Administrator.',
+      },
+      { status: 403 },
+    );
+  }
+
   const invalidJsonResponse = await validateJsonBody(request);
   if (invalidJsonResponse) return invalidJsonResponse;
 

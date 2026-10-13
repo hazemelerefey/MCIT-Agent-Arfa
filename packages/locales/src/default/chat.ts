@@ -1094,12 +1094,12 @@ export default {
   'createModal.skillSuggestion.actions.install': 'Add Skill',
   'createModal.skillSuggestion.actions.installing': 'Adding…',
   'createModal.skillSuggestion.actions.openSkills': 'View in Skills',
-  'createModal.skillSuggestion.actions.tryInLobeAI': 'Use in LobeAI',
+  'createModal.skillSuggestion.actions.tryInLobeAI': 'Use in MCIT AI',
   'createModal.skillSuggestion.description':
     'This looks like a reusable workflow. Install the Skill once, then use it across Agents.',
   'createModal.skillSuggestion.installed.description':
-    'You can use this Skill in LobeAI or add it to any Agent.',
-  'createModal.skillSuggestion.installed.ready': 'Ready in LobeAI',
+    'You can use this Skill in MCIT AI or add it to any Agent.',
+  'createModal.skillSuggestion.installed.ready': 'Ready in MCIT AI',
   'createModal.skillSuggestion.installed.title': 'Skill added',
   'createModal.skillSuggestion.installError':
     "Skill wasn't added. Retry, or create an Agent anyway.",

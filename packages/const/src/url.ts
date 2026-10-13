@@ -1,8 +1,8 @@
 import urlJoin from 'url-join';
 
-export const OFFICIAL_URL = 'https://app.lobehub.com';
-export const OFFICIAL_SITE = 'https://lobehub.com';
-export const OFFICIAL_DOMAIN = 'lobehub.com';
+export const OFFICIAL_URL = 'https://mcit.gov.eg';
+export const OFFICIAL_SITE = 'https://mcit.gov.eg';
+export const OFFICIAL_DOMAIN = 'mcit.gov.eg';
 
 export const OFFICIAL_CLOUD_URL = OFFICIAL_SITE;
 
@@ -16,98 +16,77 @@ export const isOfficialCloudServer = (url?: string): boolean => {
   }
 };
 
-export const OFFICIAL_DEVICE_GATEWAY_URL = 'https://device-gateway.lobehub.com';
-export const OFFICIAL_AGENT_GATEWAY_URL = 'https://agent-gateway.lobehub.com';
+export const OFFICIAL_DEVICE_GATEWAY_URL = 'http://localhost:8788';
+export const OFFICIAL_AGENT_GATEWAY_URL = 'http://localhost:8787';
 
-export const OG_URL = '/og/og.webp?v=1';
+export const OG_URL = '/mcit-logo.webp';
 
 export const LobeHubPath = {
   webapi: {
-    modelConfig: '/webapi/lobehub-model-config',
+    modelConfig: '/webapi/mcit-model-config',
   },
 } as const;
 
-export const GITHUB = 'https://github.com/lobehub/lobe-chat';
-export const GITHUB_ISSUES = urlJoin(GITHUB, 'issues/new/choose');
-export const CHANGELOG = 'https://lobehub.com/changelog';
+export const GITHUB = 'https://github.com/hazemelerefey/MCIT-Agent';
+export const GITHUB_ISSUES = urlJoin(GITHUB, 'issues');
+export const CHANGELOG = '/changelog';
 
-export const DOCUMENTS = urlJoin(OFFICIAL_SITE, '/docs');
-export const USAGE_DOCUMENTS = urlJoin(DOCUMENTS, '/usage');
-export const SELF_HOSTING_DOCUMENTS = urlJoin(DOCUMENTS, '/self-hosting');
-export const DATABASE_SELF_HOSTING_URL = urlJoin(SELF_HOSTING_DOCUMENTS, '/server-database');
+export const DOCUMENTS = 'https://mcit.gov.eg';
+export const USAGE_DOCUMENTS = 'https://mcit.gov.eg';
+export const SELF_HOSTING_DOCUMENTS = 'https://mcit.gov.eg';
+export const DATABASE_SELF_HOSTING_URL = 'https://mcit.gov.eg';
 
-// use this for the link
-export const DOCUMENTS_REFER_URL = `${DOCUMENTS}?utm_source=chat_preview`;
+export const DOCUMENTS_REFER_URL = DOCUMENTS;
 
-export const WIKI_PLUGIN_GUIDE = urlJoin(USAGE_DOCUMENTS, '/plugins/development');
-export const MANUAL_UPGRADE_URL = urlJoin(SELF_HOSTING_DOCUMENTS, '/advanced/upstream-sync');
+export const WIKI_PLUGIN_GUIDE = 'https://mcit.gov.eg';
+export const MANUAL_UPGRADE_URL = 'https://mcit.gov.eg';
 
-export const BLOG = urlJoin(OFFICIAL_SITE, 'blog');
+export const BLOG = 'https://mcit.gov.eg';
 
-export const ABOUT = OFFICIAL_SITE;
-export const FEEDBACK = 'https://github.com/lobehub/lobe-chat/issues/new/choose';
-export const PRIVACY_URL = urlJoin(OFFICIAL_SITE, '/privacy');
-export const TERMS_URL = urlJoin(OFFICIAL_SITE, '/terms');
+export const ABOUT = 'https://mcit.gov.eg';
+export const FEEDBACK = 'https://github.com/hazemelerefey/MCIT-Agent/issues';
+export const PRIVACY_URL = '/privacy';
+export const TERMS_URL = '/terms';
 
-export const PLUGINS_INDEX_URL = 'https://chat-plugins.lobehub.com';
+export const PLUGINS_INDEX_URL = '';
+export const OPS_ASSETS_BASE_URL = '';
 
-export const OPS_ASSETS_BASE_URL = 'https://chat-cloud.lobeobjects.space/dc/ops-assets';
+export const MORE_MODEL_PROVIDER_REQUEST_URL = 'https://mcit.gov.eg';
+export const MORE_FILE_PREVIEW_REQUEST_URL = 'https://mcit.gov.eg';
 
-export const MORE_MODEL_PROVIDER_REQUEST_URL =
-  'https://github.com/lobehub/lobe-chat/discussions/6157';
+export const AGENTS_INDEX_GITHUB = 'https://github.com/hazemelerefey/MCIT-Agent';
+export const AGENTS_INDEX_GITHUB_ISSUE = urlJoin(AGENTS_INDEX_GITHUB, 'issues');
+export const AGENTS_OFFICIAL_URL = '/';
+export const WORKSPACE_OFFICIAL_URL = '/';
 
-export const MORE_FILE_PREVIEW_REQUEST_URL =
-  'https://github.com/lobehub/lobe-chat/discussions/3684';
-
-export const AGENTS_INDEX_GITHUB = 'https://github.com/lobehub/lobe-chat-agents';
-export const AGENTS_INDEX_GITHUB_ISSUE = urlJoin(AGENTS_INDEX_GITHUB, 'issues/new');
-export const AGENTS_OFFICIAL_URL = 'https://lobehub.com/agent';
-export const WORKSPACE_OFFICIAL_URL = 'https://lobehub.com/workspace';
-
-export const AGENT_CHAT_URL = (agentId: string, mobile?: boolean) => {
-  if (mobile) return `/agent/${agentId}`;
-  return `/agent/${agentId}`;
-};
-
-export const AGENT_CHAT_TOPIC_URL = (agentId: string, topicId: string, mobile?: boolean) => {
-  if (mobile) return urlJoin('/agent', agentId, topicId);
-  return urlJoin('/agent', agentId, topicId);
-};
-
-export const AGENT_CHAT_TOPIC_PAGE_URL = (agentId: string, topicId: string, mobile?: boolean) => {
-  if (mobile) return urlJoin('/agent', agentId, topicId, 'page');
-  return urlJoin('/agent', agentId, topicId, 'page');
-};
-
+export const AGENT_CHAT_URL = (agentId: string, _mobile?: boolean) => `/agent/${agentId}`;
+export const AGENT_CHAT_TOPIC_URL = (agentId: string, topicId: string, _mobile?: boolean) =>
+  urlJoin('/agent', agentId, topicId);
+export const AGENT_CHAT_TOPIC_PAGE_URL = (agentId: string, topicId: string, _mobile?: boolean) =>
+  urlJoin('/agent', agentId, topicId, 'page');
 export const AGENT_PROFILE_URL = (agentId: string) => `/agent/${agentId}/profile`;
 
 export const GROUP_CHAT_URL = (groupId: string) => `/group/${groupId}`;
-
 export const GROUP_CHAT_TOPIC_URL = (groupId: string, topicId: string) =>
   urlJoin('/group', groupId, topicId);
 
 export const LIBRARY_URL = (id: string) => urlJoin('/resource/library', id);
-
 export const imageUrl = (filename: string) => `/app-images/${filename}`;
-
 export const LOBE_URL_IMPORT_NAME = 'settings';
 
 export const RELEASES_URL = urlJoin(GITHUB, 'releases');
-
 export const mailTo = (email: string) => `mailto:${email}`;
 
 export const AES_GCM_URL = 'https://datatracker.ietf.org/doc/html/draft-ietf-avt-srtp-aes-gcm-01';
-export const BASE_PROVIDER_DOC_URL = 'https://lobehub.com/docs/usage/providers';
-export const CHANGELOG_URL = urlJoin(OFFICIAL_SITE, 'changelog');
+export const BASE_PROVIDER_DOC_URL = 'https://mcit.gov.eg';
+export const CHANGELOG_URL = '/changelog';
 
 export const DOWNLOAD_URL = {
-  android: 'https://play.google.com/store/apps/details?id=com.lobehub.app',
-  default: urlJoin(OFFICIAL_SITE, '/downloads'),
-  mobile: urlJoin(OFFICIAL_SITE, '/mobile'),
-  ios: 'https://testflight.apple.com/join/2ZbjX4Qp',
+  android: '',
+  default: '/',
+  mobile: '/',
+  ios: '',
 } as const;
 
-export const channelDocUrl = (platform: string) => urlJoin(USAGE_DOCUMENTS, 'channels', platform);
-
-export const discoverUrl = (type: string, identifier: string) =>
-  urlJoin(OFFICIAL_SITE, 'discover', type, identifier);
+export const channelDocUrl = (_platform: string) => 'https://mcit.gov.eg';
+export const discoverUrl = (_type: string, _identifier: string) => '/';

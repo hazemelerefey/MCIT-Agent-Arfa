@@ -46,6 +46,8 @@ tmp/
 .env.local
 .env*.local
 .env.development
+docker-compose/mcit/data/
+docker-compose/**/data/
 venv/
 .venv/
 

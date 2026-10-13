@@ -34,7 +34,7 @@ export const POST = async (req: Request) => {
     process.env.OLLAMA_PROXY_URL?.replace(/\/$/, '') ||
     process.env.OLLAMA_HOST ||
     'http://127.0.0.1:11434';
-  const model = process.env.MCIT_STUDIO_MODEL || process.env.OLLAMA_CHAT_MODEL || 'qwen2.5:7b';
+  const model = process.env.MCIT_STUDIO_MODEL || process.env.OLLAMA_CHAT_MODEL || 'gemma4:e4b';
 
   const system = [
     'You are MCIT Studio, an official document assistant for the Ministry of Communications and Information Technology.',

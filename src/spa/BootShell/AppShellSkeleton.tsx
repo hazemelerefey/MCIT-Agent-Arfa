@@ -2,10 +2,11 @@
 
 import { TITLE_BAR_HEIGHT } from '@lobechat/desktop-bridge';
 import { Flexbox } from '@lobehub/ui';
-import { LobeHub } from '@lobehub/ui/brand';
 import { createStaticStyles, keyframes } from 'antd-style';
 import { memo, useEffect, useLayoutEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ProductLogo } from '@/components/Branding';
 
 import { retainSkeleton } from '@/components/Skeleton/skeletonHandover';
 import { isDesktop } from '@/const/version';
@@ -160,7 +161,7 @@ const AppShellSkeleton = memo<AppShellSkeletonProps>(({ id }) => {
           >
             <div className={styles.contentBrand}>
               <div className={styles.brand}>
-                <LobeHub size={40} type={'text'} />
+                <ProductLogo size={44} type={'combine'} />
                 {waiting && <LoadingHint />}
               </div>
             </div>

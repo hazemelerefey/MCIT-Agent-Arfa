@@ -3,7 +3,7 @@
 ## Goals
 
 - Private deployment for official MCIT data
-- Email/password auth via Better Auth (already in Lobe core)
+- Email/password auth via Better Auth
 - One-time **admin bootstrap** without leaving the first account to public signup luck
 - Trusted origins include Alloy/preview hosts so sign-in cookies work behind the proxy
 

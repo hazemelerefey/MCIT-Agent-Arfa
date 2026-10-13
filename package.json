@@ -1,29 +1,21 @@
 {
-  "name": "@lobehub/lobehub",
+  "name": "mcit-agent",
   "version": "2.2.19",
-  "description": "LobeHub - an open-source,comprehensive AI Agent framework that supports speech synthesis, multimodal, and extensible Function Call plugin system. Supports one-click free deployment of your private ChatGPT/LLM web application.",
+  "description": "MCIT AI - Sovereign AI Agent Framework for the Ministry of Communications and Information Technology (MCIT), developed by Eng Ahmed Arfa",
   "keywords": [
     "framework",
     "chatbot",
-    "chatgpt",
+    "mcit",
+    "agent",
     "nextjs",
-    "vercel-ai",
-    "openai",
-    "azure-openai",
-    "visual-model",
-    "tts",
-    "stt"
+    "ai"
   ],
-  "homepage": "https://github.com/lobehub/lobehub",
-  "bugs": {
-    "url": "https://github.com/lobehub/lobehub/issues/new/choose"
-  },
+  "homepage": "https://mcit.gov.eg",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobehub/lobehub.git"
+    "url": "https://github.com/hazemelerefey/MCIT-Agent.git"
   },
-  "license": "MIT",
-  "author": "LobeHub <i@lobehub.com>",
+  "author": "MCIT (Lead Developer: Eng Ahmed Arfa)",
   "sideEffects": [
     "./src/initialize.ts",
     "./src/libs/providerIcon.ts",
@@ -110,7 +102,7 @@
     "lint:style": "stylelint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "lint:ts": "eslint src/ tests/ apps/server/src/ --concurrency=auto",
     "lint:unused": "knip --include files,exports,types,enumMembers,duplicates",
-    "prepare": "git rev-parse --git-dir > /dev/null 2>&1 && git config core.hooksPath .githooks || true",
+    "prepare": "git config core.hooksPath .githooks || exit 0",
     "prettier": "prettier -c --write \"**/**\"",
     "pull": "git pull",
     "qstash": "pnpx @upstash/qstash-cli@latest dev",
@@ -406,6 +398,7 @@
     "js-sha256": "^0.11.1",
     "jsondiffpatch": "^0.7.6",
     "jsonl-parse-stringify": "^1.0.3",
+    "jspdf": "^4.2.1",
     "keygrip": "^1.1.0",
     "langfuse": "^3.38.20",
     "langfuse-core": "^3.38.20",
@@ -443,6 +436,7 @@
     "pinyin-pro": "^3.28.2",
     "plaiceholder": "^3.0.0",
     "polished": "^4.3.1",
+    "pptxgenjs": "^4.0.1",
     "pure-rand": "^7.0.1",
     "pwa-install-handler": "^2.6.5",
     "query-string": "^9.5.0",

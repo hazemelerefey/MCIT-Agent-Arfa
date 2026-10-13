@@ -2,7 +2,7 @@ import type { ModelProviderCard } from '../types';
 
 const Ollama: ModelProviderCard = {
   chatModels: [],
-  checkModel: 'deepseek-r1',
+  checkModel: 'gemma4:e4b',
   defaultShowBrowserRequest: true,
   description:
     'Ollama offers models across code generation, math, multilingual processing, and chat, supporting both enterprise and local deployments.',

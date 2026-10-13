@@ -1,4 +1,4 @@
-import { BRANDING_NAME } from '@lobechat/business-const';
+import { BRANDING_NAME, DEVELOPER_NAME, ORG_NAME } from '@lobechat/business-const';
 import {
   getElectronIpc,
   type UpdaterState,
@@ -206,9 +206,12 @@ const Version = memo<{ mobile?: boolean }>(({ mobile }) => {
             <ProductLogo size={52} />
           </Block>
         </a>
-        <Flexbox align={'flex-start'} gap={6}>
+        <Flexbox align={'flex-start'} gap={2}>
           <div style={{ fontSize: 18, fontWeight: 'bolder' }}>{BRANDING_NAME}</div>
-          <Flexbox gap={6} horizontal={!mobile}>
+          <div style={{ fontSize: 12, color: 'var(--ant-color-text-secondary)' }}>
+            Developed by <strong>{DEVELOPER_NAME}</strong> for {ORG_NAME}
+          </div>
+          <Flexbox gap={6} horizontal={!mobile} style={{ marginTop: 4 }}>
             <Tag
               style={{ cursor: devDockGestureEnabled ? 'pointer' : 'default' }}
               onClick={handleVersionClick}

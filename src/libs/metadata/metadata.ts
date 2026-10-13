@@ -91,7 +91,7 @@ export class Meta {
       card: 'summary_large_image',
       description,
       images: [image],
-      site: isCustomORG ? `@${ORG_NAME}` : '@lobehub',
+      site: `@${ORG_NAME}`,
       title,
       url,
     };

@@ -101,6 +101,8 @@ export const getTrustedOrigins = (enabledSSOProviders: string[]) => {
     'http://127.0.0.1:3210',
     'http://localhost:8502',
     'http://127.0.0.1:8502',
+    'http://localhost:3010',
+    'http://127.0.0.1:3010',
   ];
 
   const defaults = [

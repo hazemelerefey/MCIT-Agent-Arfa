@@ -21,4 +21,11 @@ export const getServerDB = async (): Promise<LobeChatDatabase> => {
   }
 };
 
-export const serverDB = getDBInstance();
+export const serverDB = new Proxy({} as LobeChatDatabase, {
+  get(target, prop, receiver) {
+    if (!cachedDB) {
+      cachedDB = getDBInstance();
+    }
+    return Reflect.get(cachedDB, prop, receiver);
+  },
+});
